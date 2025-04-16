@@ -35,7 +35,7 @@ let operate = function (operator, oprandA, operandB) {
 
 // 获取显示区域
 const display = document.querySelector(".display");
-let displayValue = display.textContent;
+let displayValue = '';
 
 // 获取所有数字按钮
 const numberButtons = document.querySelectorAll(".number");
@@ -44,10 +44,16 @@ const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach(button => {
   button.addEventListener("click", () => {
     // 获取按钮上的数字（直接取文本内容）
-    displayValue = button.textContent;
+    let input = button.textContent;
+    // 如果第一位输入0，则不添加
+    if (!(input == 0 && displayValue.length == 0)) {
+      displayValue += input;
+    }
 
     // 更新显示区域
-    display.textContent = displayValue;
+    if (displayValue.length > 0) {
+      display.textContent = displayValue;
+    }
   });
 });
 
