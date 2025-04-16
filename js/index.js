@@ -57,3 +57,11 @@ numberButtons.forEach(button => {
   });
 });
 
+// 添加清除按钮逻辑
+let clear = document.querySelector(".clear");
+clear.addEventListener("click", () => {
+  // 清空显示区域
+  display.textContent = 0;
+  // 清空输入值变量
+  displayValue = '';
+})
