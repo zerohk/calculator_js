@@ -32,4 +32,22 @@ let operate = function (operator, oprandA, operandB) {
   return operator(oprandA, operandB);
 }
 
-console.log(operate(add, 1, 2));
+
+// 获取显示区域
+const display = document.querySelector(".display");
+let displayValue = display.textContent;
+
+// 获取所有数字按钮
+const numberButtons = document.querySelectorAll(".number");
+
+// 为每个数字按钮绑定点击事件
+numberButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    // 获取按钮上的数字（直接取文本内容）
+    displayValue = button.textContent;
+
+    // 更新显示区域
+    display.textContent = displayValue;
+  });
+});
+
